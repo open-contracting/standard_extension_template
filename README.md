@@ -39,14 +39,12 @@ This file is required and it gives any automated tools information about the ext
 ### required fields
 
 * name (Name of extension)
-* description (des of extension)
+* description (Description of extension)
 
 ### optional fields
 
 * compatibility (A semver description of what version of the core standard the extension in compatible with e.g >=1.0)
-* dependencies (A list of other extensions that this depend on this schema)
-
-
+* dependencies (A list of other extensions that this extension depends on)
 
 
 How the extensions work
@@ -63,16 +61,11 @@ In the extension some or all of these files can be used to do a JSON Merge Patch
 
 A JSON merge patch is described by this [rfc](https://tools.ietf.org/html/rfc7386).
 
-The patches are very simple. They just copy the same structure from the core schema and you add your extra fields or update existing fields just in the places the extension wants to change the schema. 
-Here are some simple examples of how this works. They all are examples of what could go in release-schema.json files in the extension.
+The patches are very simple. They just copy the same structure from the core schema and allow you add your extra fields or update existing fields just in the places the extension wants to change the schema. 
 
+Here are some simple examples of how this works. They are illistrative, any changes to existing fields should respect the [Conformance documentation](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
 
-To update the description of the ocid field 
-```
-{"properties": 
-    {"ocid": {"description": "A new description of an ocid"}}
-}
-```
+They all are examples of what could go in release-schema.json files in an extension.
 
 Add a new field "newField" to the release.
 ```
@@ -85,7 +78,6 @@ Add a new field "newField" to the release.
 }
 ```
 
-
 Add a new field "newOrgField" to the organization definition.
 ```
 {"definitions":
@@ -96,6 +88,15 @@ Add a new field "newOrgField" to the organization definition.
        "type": "string"}
     }
   }
+}
+```
+
+To update the description of the planning phase. 
+```
+{"properties": 
+    {"planning": 
+        {"description": "Information from the planning phase of the contracting process. This may include detailed budgets broken down by year (supported by the budgets extension).”}
+    }
 }
 ```
 
@@ -119,7 +120,7 @@ Leave the core release-schema.json untouched and not do any update to it.
 Best practice
 -------------
 
-It is possible to copy the whole of the schemas from the core, change them and as long as you have only added or changed properties the extension will work as expected. However doing it this way will mean that it will be hard to see what changes are made and will be much harder to track changes of the core schema (as every change in the core scheme will need to be copied).  
+It is possible to copy the whole of the schemas from the core, change them and as long as you have only added or changed properties the extension will work as expected. However doing it this way will mean that it will be hard to see what changes are made and will be much harder to track changes of the core schema (as every change in the core schema will need to be copied).  
 
-So it is best practice to just put in an extension to just show the minimal changes that are required. However, it can be useful to work with the whole schema when developing an extension. In this case use the [json merge patch library](https://github.com/pierreinglebert/json-merge-patch) and it will generate the minimal patch for you by using jsonmergepatch.generate(core_schema, new_modified_schema). This method will also handle deletions.
+So it is best practice to just put in an extension the minimal changes that are required. However, it can be useful to work with the whole schema when developing an extension. In this case use the [json merge patch library](https://github.com/pierreinglebert/json-merge-patch) and it will generate the minimal patch for you by using jsonmergepatch.generate(core_schema, new_modified_schema). This method will also handle deletions.
 
