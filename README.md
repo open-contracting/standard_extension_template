@@ -122,5 +122,18 @@ Best practice
 
 It is possible to copy the whole of the schemas from the core, change them and as long as you have only added or changed properties the extension will work as expected. However doing it this way will mean that it will be hard to see what changes are made and will be much harder to track changes of the core schema (as every change in the core schema will need to be copied).  
 
-So it is best practice to just put in an extension the minimal changes that are required. However, it can be useful to work with the whole schema when developing an extension. In this case use the [json merge patch library](https://github.com/pierreinglebert/json-merge-patch) and it will generate the minimal patch for you by using jsonmergepatch.generate(core_schema, new_modified_schema). This method will also handle deletions.
+So it is best practice to just put in an extension the minimal changes that are required. However, it can be useful to work with the whole schema when developing an extension. In this case use the [json merge patch library](https://github.com/open-contracting/json-merge-patch) and it will generate the minimal patch for you by using the command line tool.
+
+```
+json-merge-patch create-patch core_schema.json new_modified_schema.json -o minimal_patch.json
+```
+
+You can also test your extension by:
+
+```
+json-merge-patch merge core_schema.json your_extension.json -o expected_output.json
+
+```
+
+
 
