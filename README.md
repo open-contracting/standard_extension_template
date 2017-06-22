@@ -6,7 +6,7 @@ This repository has two purposes:
  *  To give a template of an extension that people can base their own on.
  *  To give a place for comment and discussion on how extensions should work.
 
-The structure of the extension repository should look like:
+The structure of the extension repository should look like this:
 
 ```
 ├── README.md (a full description of the extension in markdown - required)
@@ -26,23 +26,25 @@ The structure of the extension repository should look like:
     └── 
 ```
 
-It copies its layout from the core [standards repository](https://github.com/open-contracting/standard/tree/1.0/standard/schema) and that can be a useful reference when developing an extension.
+This layout is copied from the core [standards repository](https://github.com/open-contracting/standard/tree/1.0/standard/schema) and is intended to be a useful reference when developing an extension.
 
 
 extension.json
 --------------
 
-This file is required and it gives any automated tools information about the extension.
+This file is required. It provides information about the extension to be used by any OCDS automated tool.
 
-[An example of this file can be found in this repository](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json) 
+This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json) and also an [extension-schema.json](https://github.com/open-contracting/standard_extension_template/blob/master/schema/extension-schema.json)] describing extension.json data format.
 
 ### required fields
 
-* name (Name of extension)
-* description (Description of extension)
+* name (Name of extension: an object mapping language codes to the name of the extension in the language)
+* description (Description of extension: an object mapping language codes to the description of the extension in the language)
+* documentationUrl (Documentation URL: an object mapping language codes to an URL with documentation in the language)
 
 ### optional fields
 
+* codelist (A boolean indicating whether the extension includes codelists)
 * compatibility (A semver description of what version of the core standard the extension in compatible with e.g >=1.0)
 * dependencies (A list of other extensions that this extension depends on)
 
@@ -50,22 +52,18 @@ This file is required and it gives any automated tools information about the ext
 How the extensions work
 -----------------------
 
-In the core repository as of OCDS version 1.0.1 there are the following 4 schema files.
+In the core repository there are the following 4 schema files (as of OCDS version 1.1.0):
 
 * release-schema.json
 * record-package-schema.json
 * release-package-schema.json
 * versioned-release-validation-schema.json
 
-In the extension some or all of these files can be used to do a JSON Merge Patch of the corresponding file.
+An extension to the OCDS just copies the same files from the core schema, adding extra fields or updating existing ones in those places where additions or modifications are required. Empty schema files (`{}`) in the extension are ignored, whilst files containing data are used to do a JSON Merge Patch with the corresponding file in the core schema. JSON Merge Patch is described in this [rfc](https://tools.ietf.org/html/rfc7386).
 
-A JSON merge patch is described by this [rfc](https://tools.ietf.org/html/rfc7386).
+Any changes to existing fields should respect the [Conformance documentation](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
 
-The patches are very simple. They just copy the same structure from the core schema and allow you add your extra fields or update existing fields just in the places the extension wants to change the schema. 
-
-Here are some simple examples of how this works. They are illistrative, any changes to existing fields should respect the [Conformance documentation](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
-
-They all are examples of what could go in release-schema.json files in an extension.
+Here are some simple examples illustrating how this works. All the following examples modify release-schema.json using the extension mechanism.
 
 Add a new field "newField" to the release.
 ```
@@ -120,15 +118,15 @@ Leave the core release-schema.json untouched and not do any update to it.
 Best practice
 -------------
 
-It is possible to copy the whole of the schemas from the core, change them and as long as you have only added or changed properties the extension will work as expected. However doing it this way will mean that it will be hard to see what changes are made and will be much harder to track changes of the core schema (as every change in the core schema will need to be copied).  
+It is possible to copy all files from the core schema and modify them as needed: as long as you only add or change properties the extension will work as expected. However, the problem with replicating whole schema files is that it makes very hard to see what the extension does and how the core schema gets extended. To avoid that it is best practice to only include in the extension the minimal changes required.
 
-So it is best practice to just put in an extension the minimal changes that are required. However, it can be useful to work with the whole schema when developing an extension. In this case use the [json merge patch library](https://github.com/open-contracting/json-merge-patch) and it will generate the minimal patch for you by using the command line tool.
+Although it is recommended that extensions contain minimal changes, when developing an extension it can be useful to work with the whole schema. In that case you can use the [json merge patch library](https://github.com/open-contracting/json-merge-patch), which will generate the minimal patch for you by using the command line tool.
 
 ```
 json-merge-patch create-patch core_schema.json new_modified_schema.json -o minimal_patch.json
 ```
 
-You can also test your extension by:
+You can also test your extension:
 
 ```
 json-merge-patch merge core_schema.json your_extension.json -o expected_output.json
