@@ -11,10 +11,14 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "codelist": {
-      "title": "Extension codelist",
-      "description": "Specify whether the extension bundle includes a codelist.",
-      "type": "boolean"
+    "codelists": {
+      "title": "Extension codelists",
+      "description": "Codelists for this extension",
+      "type": "array",
+      "item" : {
+        "type": "string",
+        "pattern": "^.+\\.csv$"
+      }
     },
     "compatibilty": {
       "title": "Compatibilty",
@@ -28,7 +32,7 @@
       "items":{
         "type": "string",
         "format": "uri",
-        "pattern": "^.+/extension.json"
+        "pattern": "^.+/extension\\.json$"
       }
     },
     "description": {

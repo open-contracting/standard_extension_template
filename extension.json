@@ -8,7 +8,7 @@
   "documentationUrl": {
     "en": "http://path.to.documentation.in.specified.language (required in at least one language)"
    },
-  "codelist": true,
+  "codelists": ["codelist1.csv", "codelist2,csv"],
   "compatibility": ">=1.0.0",
-  "dependencies": ["http://path.to.other.extension.json"]
+  "dependencies": ["http://path/to/extension1/extension.json", "http://path/to/extension2/extension.json"]
 }

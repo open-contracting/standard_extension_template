@@ -34,19 +34,19 @@ extension.json
 
 This file is required. It provides information about the extension to be used by any OCDS automated tool.
 
-This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json) and also an [extension-schema.json](https://github.com/open-contracting/standard_extension_template/blob/master/schema/extension-schema.json)] describing extension.json data format.
+This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json) and also an [extension-schema.json](https://github.com/open-contracting/standard_extension_template/blob/master/schema/extension-schema.json) describing extension.json data format.
 
 ### required fields
 
-* name (Name of extension: an object mapping language codes to the name of the extension in the language)
-* description (Description of extension: an object mapping language codes to the description of the extension in the language)
-* documentationUrl (Documentation URL: an object mapping language codes to an URL with documentation in the language)
+* name: name of the extension, an object mapping language codes to the name of the extension in the language.
+* description: description of the extension, an object mapping language codes to the description of the extension in the language.
+* documentationUrl: Documentation URL for the extension, an object mapping language codes to an URL with documentation in the language.
 
 ### optional fields
 
-* codelist (A boolean indicating whether the extension includes codelists)
-* compatibility (A semver description of what version of the core standard the extension in compatible with e.g >=1.0)
-* dependencies (A list of other extensions that this extension depends on)
+* codelist: an array containing the names of the CVS files included in the extension codelists directory.
+* compatibility: a semver description of what version of the core standard the extension in compatible with, e.g >=1.0.
+* dependencies: an array containing the URLs of other extensions this extension depends on.
 
 
 How the extensions work
@@ -63,7 +63,7 @@ An extension to the OCDS just copies the same files from the core schema, adding
 
 Any changes to existing fields should respect the [Conformance documentation](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
 
-Here are some simple examples illustrating how this works. All the following examples modify release-schema.json using the extension mechanism.
+Here are some simple examples illustrating how this works. All of them modify release-schema.json using the extension mechanism.
 
 Add a new field "newField" to the release.
 ```
