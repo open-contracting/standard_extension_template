@@ -20,19 +20,12 @@
         "pattern": "^.+\\.csv$"
       }
     },
-    "compatibilty": {
-      "title": "Compatibilty",
-      "description": "OCDS standard version this extension is compatible with.",
-      "type": "string"
-    },
-    "dependencies": {
-      "title": "Dependencies",
-      "description": "Extensions this extension depends on.",
+    "compatibility": {
+      "title": "Compatibility",
+      "description": "Versions of the OCDS standard this extension works against",
       "type": "array",
       "items":{
-        "type": "string",
-        "format": "uri",
-        "pattern": "^.+/extension\\.json$"
+        "type": "string"
       }
     },
     "description": {
@@ -71,6 +64,19 @@
           "type": "string"
         }
       }
+    },
+    "dependencies": {
+      "title": "Dependencies",
+      "description": "Extensions this extension depends on.",
+      "type": "array",
+      "items":{
+        "type": "string"
+      }
+    },
+    "version": {
+      "title": "Version",
+      "description": "Version of the extension. This may be completely seperate from the version of the OCDS standard this extension is compatible with (use compatability for this case).",
+      "type": "string"
     }
   }
 }
