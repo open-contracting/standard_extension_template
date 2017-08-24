@@ -9,7 +9,7 @@ This repository has two purposes:
 The structure of the extension repository should look like:
 
 ```
-├── README.md (a full description of the extension in markdown - required)
+├── README.md (a full description of the extension in markdown, it should include the content of README-template.md file verbatim - required.)
 ├── extension.json (a json file giving metadata about the extension - required)
 ├── release-schema.json (json merge patch of release-schema.json)
 ├── record-package-schema.json (json merge patch of record-package-schema.json)
@@ -27,6 +27,8 @@ The structure of the extension repository should look like:
 ```
 
 It copies its layout from the core [standards repository](https://github.com/open-contracting/standard/tree/1.0/standard/schema) and that can be a useful reference when developing an extension.
+
+Issues should be disabled in extension repositories. The content of _README-template.md_ contains information to direct extension developers to the [ocds extension repository](https://github.com/open-contracting/ocds-extensions/), where issues should be submitted for all extensions.
 
 
 extension.json
