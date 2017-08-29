@@ -26,8 +26,18 @@ The structure of the extension repository should look like:
     └── 
 ```
 
-It copies its layout from the core [standards repository](https://github.com/open-contracting/standard/tree/1.0/standard/schema) and that can be a useful reference when developing an extension.
+It copies its layout from the core [standards repository](https://github.com/open-contracting/standard/tree/1.0/standard/schema) and it is a useful reference when developing an extension.
 
+Schema files
+------------
+
+The extension template includes the following schema files:
+
+* release-schema.json
+* release-package-schema.json
+* record-package-schema.json
+
+Extensions must include at least one of those files. In most cases, the extension will have a _release-schema.json_ with the minimal changes required to patch the schema, although there may be more marginal user cases requiring metadata patches for _release-package-schema.json_ and/or _record-package-schema.json_. Empty schema files should not be included in the extension.
 
 extension.json
 --------------
@@ -167,6 +177,3 @@ You can also test your extension by:
 json-merge-patch merge core_schema.json your_extension.json -o expected_output.json
 
 ```
-
-
-
