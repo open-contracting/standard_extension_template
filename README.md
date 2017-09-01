@@ -6,7 +6,21 @@ This repository has two purposes:
  *  To give a template of an extension that people can base their own on.
  *  To give a place for comment and discussion on how extensions should work.
 
-The structure of the extension repository should look like:
+Getting started
+---------------
+To use create an extension based on this template, you should:
+
+1. Download [a zip file version of the template](https://github.com/open-contracting/standard_extension_template/archive/master.zip)
+2. Extract it, and initialise it as a git repository (`git init`)
+3. Update the README.md and extension.json files, and prepare any schema, codelist, documentation and test files
+4. Commit the files you have changed
+5. Push to a new public git repository
+6. (For core or community extensions) Register this extension with the [extensions registry](https://github.com/open-contracting/extension_registry)
+
+Extension structure
+-------------------
+
+The structure of an extension repository should look like:
 
 ```
 ├── README.md (a full description of the extension in markdown - required)
@@ -14,7 +28,6 @@ The structure of the extension repository should look like:
 ├── release-schema.json (json merge patch of release-schema.json)
 ├── record-package-schema.json (json merge patch of record-package-schema.json)
 ├── release-package-schema.json (json merge patch of release-package-schema.json)
-├── versioned-release-validation-schema.json (json merge patch of versioned-release-validation-schema.json)
 ├── codelists 
 │   ├── emptyCodelist.csv (A new codelist)
 │   └── awardCriteria.csv (This will overwrite the existing codelist)
@@ -26,7 +39,7 @@ The structure of the extension repository should look like:
     └── 
 ```
 
-It copies its layout from the core [standards repository](https://github.com/open-contracting/standard/tree/1.0/standard/schema) and it is a useful reference when developing an extension.
+This copies the layout of the core [standards repository](https://github.com/open-contracting/standard/tree/HEAD/standard/schema).
 
 Schema files
 ------------
@@ -57,9 +70,9 @@ Names for extensions should conform to the following pattern:
 
 `ocds_[name]_extension`
 
-`[name]` should be based on a JSON Pointer fragment for the name of the primary field or the primary object being added, or both if necessary. The idea is that the name should be a good indication of which part of the schema is being targeted, thus contributing to self-documenting the extension.
+For example, `ocds_additionalContactPoints_extension`. 
 
-When naming an extension, camel case (_camelCase_) should be replaced with lowercase plus underscores (_camel_case_).
+`[name]` should indicate the purpose of the extension, and/or the field or object being extended to aid self-documentation. This could be the a JSON Pointer fragment for the name of the primary field or object that the extension introduces.
 
 #### Extension descriptions
 
@@ -70,23 +83,23 @@ Here are some guidelines for writing the text for the mandatory field `"descript
 * Do not include in the description the development status of the extension (e.g. _draft_). If you need to add current status, do so in a _README_ file, it will be much more visible and therefore less prone to be forgotten and not updated.
 * Avoid descriptions that simply duplicate or paraphrase the extension name.
 
-For example, for [ocds_performance_failures_extension](https://github.com/open-contracting/ocds_performance_failures) , this wouldn't be a good description:
+For example, for [ocds_performance_failures_extension](https://github.com/open-contracting/ocds_performance_failures), this wouldn't be a good description:
 
   > _"An extension covering performance failures in OCDS."_
 
 The actual description in the extension is much better:
 
-  > _"This extension introduces a performance failures array to the implementation section of OCDS, based on the performance failures reporting table defined in the framework for disclosure in PPPs."_
+  > _"Adds fields to the implementation section to allow disclosure of an array of contracting performance failures. Based on the performance failures reporting table defined in the World Bank Framework for Disclosure in PPPs."_
 
 ### optional fields
 
-* compatibility (A semver description of what version of the core standard the extension in compatible with e.g >=1.0)
+* compatibility (A [semver](http://semver.org/) description of what version of the core standard the extension in compatible with e.g >=1.0)
 * dependencies (A list of other extensions that this extension depends on)
 
 Codelists
 ---------
 
-As the [core standard repository](https://github.com/open-contracting/standard), the extension template also includes a codelists folder to store extension-specific codelists.
+As in the [core standard repository](https://github.com/open-contracting/standard), the extension template also includes a codelists folder to store extension-specific codelists.
 
 Codelists are CSV files with camel case names , e.g. _contractStatus.csv_. Be aware that a codelist in your extension using the same name of an existing codelist in the standard repository will override the existing codelist.
 
