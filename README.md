@@ -6,7 +6,21 @@ This repository has two purposes:
  *  To give a template of an extension that people can base their own on.
  *  To give a place for comment and discussion on how extensions should work.
 
-The structure of the extension repository should look like:
+Getting started
+---------------
+To use create an extension based on this template, you should:
+
+1. Download [a zip file version of the template](https://github.com/open-contracting/standard_extension_template/archive/master.zip)
+2. Extract it, and initialise it as a git repository (`git init`)
+3. Update the README.md and extension.json files, and prepare any schema, codelist, documentation and test files
+4. Commit the files you have changed
+5. Push to a new public git repository
+6. (For core or community extensions) Register this extension with the [extensions registry](https://github.com/open-contracting/extension_registry)
+
+Extension structure
+-------------------
+
+The structure of an extension repository should look like:
 
 ```
 ├── README.md (a full description of the extension in markdown - required)
@@ -14,7 +28,6 @@ The structure of the extension repository should look like:
 ├── release-schema.json (json merge patch of release-schema.json)
 ├── record-package-schema.json (json merge patch of record-package-schema.json)
 ├── release-package-schema.json (json merge patch of release-package-schema.json)
-├── versioned-release-validation-schema.json (json merge patch of versioned-release-validation-schema.json)
 ├── codelists 
 │   ├── emptyCodelist.csv (A new codelist)
 │   └── awardCriteria.csv (This will overwrite the existing codelist)
@@ -26,8 +39,7 @@ The structure of the extension repository should look like:
     └── 
 ```
 
-It copies its layout from the core [standards repository](https://github.com/open-contracting/standard/tree/1.0/standard/schema) and that can be a useful reference when developing an extension.
-
+This copies the layout of the core [standards repository](https://github.com/open-contracting/standard/tree/HEAD/standard/schema).
 
 extension.json
 --------------
