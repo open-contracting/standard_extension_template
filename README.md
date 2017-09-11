@@ -56,14 +56,21 @@ Extensions must include at least one of those files. In most cases, the extensio
 extension.json
 --------------
 
-This file is required and it gives any automated tools information about the extension.
+This file is required. It provides information about the extension to be used by any OCDS automated tool.
 
-[An example of this file can be found in this repository](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json) 
+This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json) and also an [extension-schema.json](https://github.com/open-contracting/standard_extension_template/blob/master/schema/extension-schema.json)] describing extension.json data format.
 
-### required fields
+##### required fields
 
-* name (Name of extension)
-* description (Description of extension)
+* name (Name of extension: an object mapping language codes to the name of the extension in the language)
+* description (Description of extension: an object mapping language codes to the description of the extension in the language)
+* documentationUrl (Documentation URL: an object mapping language codes to an URL with documentation in the language)
+
+##### optional fields
+
+* codelist (A boolean indicating whether the extension includes codelists)
+* compatibility (A semver description of what version of the core standard the extension in compatible with e.g >=1.0)
+* dependencies (A list of other extensions that this extension depends on)
 
 #### Naming extensions
 
