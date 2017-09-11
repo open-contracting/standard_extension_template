@@ -8,14 +8,15 @@ This repository has two purposes:
 
 Getting started
 ---------------
-To use create an extension based on this template, you should:
+To create an extension based on this template, you should:
 
 1. Download [a zip file version of the template](https://github.com/open-contracting/standard_extension_template/archive/master.zip)
 2. Extract it, and initialise it as a git repository (`git init`)
 3. Update the README.md and extension.json files, and prepare any schema, codelist, documentation and test files
 4. Commit the files you have changed
-5. Push to a new public git repository
-6. (For core or community extensions) Register this extension with the [extensions registry](https://github.com/open-contracting/extension_registry)
+5. Delete files you have not changed
+6. Push to a new public git repository
+7. (For core or community extensions) Register this extension with the [extensions registry](https://github.com/open-contracting/extension_registry)
 
 Extension structure
 -------------------
@@ -72,7 +73,7 @@ Names for extensions should conform to the following pattern:
 
 For example, `ocds_additionalContactPoints_extension`. 
 
-`[name]` should indicate the purpose of the extension, and/or the field or object being extended to aid self-documentation. This could be the a JSON Pointer fragment for the name of the primary field or object that the extension introduces.
+`[name]` should indicate the purpose of the extension, and/or the field or object being extended to aid self-documentation. This could be the JSON Pointer fragment for the name of the primary field or object that the extension introduces.
 
 #### Extension descriptions
 
