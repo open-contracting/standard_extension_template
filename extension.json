@@ -3,7 +3,7 @@
     "en" : "Name of extension (required in at least one language)"
    },
   "description": {
-    "en": "A brief description of what this extension does, this will be pulled into the main docs as a link (required in at least one language)",
+    "en": "A brief description of what this extension does, this will be pulled into the main docs as a link (required in at least one language)"
    },
   "documentationUrl": {
     "en": "http://path.to.documentation.in.specified.language (required in at least one language)"
