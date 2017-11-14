@@ -54,7 +54,7 @@ Extensions must include at least one of those files. In most cases, the extensio
 
 This file is required. It provides information about the extension to be used by any OCDS automated tool.
 
-This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json) and an [extension-schema.json](https://github.com/open-contracting/standard_extension_template/blob/master/schema/extension-schema.json) describing extension.json data format.
+This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json). [extension-schema.json](https://github.com/open-contracting/standard-maintenance-scripts/blob/master/schema/extension-schema.json) describes its format.
 
 ### Required fields
 
