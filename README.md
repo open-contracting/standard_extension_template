@@ -30,12 +30,8 @@ The structure of an extension repository should look like:
 ├── codelists
 │   ├── emptyCodelist.csv (A new codelist)
 │   └── awardCriteria.csv (This will overwrite the existing codelist)
-├── docs (more in depth documentation if required)
-│   └── index.md
-├── tests (tests to run against the schema)
-│   └──
-└── tools (tools to help)
-    └──
+└── docs (more in depth documentation if required)
+    └── index.md
 ```
 
 This copies the layout of the core [standards repository](https://github.com/open-contracting/standard/tree/HEAD/standard/schema).
