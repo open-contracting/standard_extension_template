@@ -58,15 +58,15 @@ This repository contains an [example extension.json](https://github.com/open-con
 
 ### Required fields
 
-* name (Name of extension: an object mapping language codes to the name of the extension in the language)
-* description (Description of extension: an object mapping language codes to the description of the extension in the language)
-* documentationUrl (Documentation URL: an object mapping language codes to an URL with documentation in the language)
+* `name`: An object mapping language codes to the name of the extension in the language
+* `description`: An object mapping language codes to the description of the extension in the language
+* `documentationUrl`: An object mapping language codes to the URL for documentation in the language, e.g. the extension's GitHub page
 
 ### Optional fields
 
-* codelist (A boolean indicating whether the extension includes codelists)
-* compatibility (A [semver](http://semver.org/) description of what version of the core standard the extension in compatible with e.g >=1.0)
-* dependencies (A list of other extensions that this extension depends on)
+* `codelists`: An array of the filenames of the CSV files in the extension's `codelists` directory, e.g. `[ "codelistName.csv" ]`
+* `compatibility`: An array of minor versions of the core standard that the extension in compatible with, e.g. `[ "1.0", "1.1" ]`
+* `dependencies`: An array of the URLs of other extensions that this extension depends on, e.g. `[ "http://path/to/extension/extension.json" ]`
 
 ## Naming extensions
 
@@ -118,7 +118,7 @@ The patches are very simple. They just copy the same structure from the core sch
 
 Here are some simple examples of how this works. They are illistrative, any changes to existing fields should respect the [Conformance documentation](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
 
-They all are examples of what could go in release-schema.json files in an extension.
+They all are examples of what could go in `release-schema.json` files in an extension.
 
 Add a new field `newField` to the release.
 
