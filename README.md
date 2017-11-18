@@ -21,7 +21,7 @@ To create an extension based on this template, you should:
 
 The structure of an extension repository should look like:
 
-```
+```text
 ├── README.md (a full description of the extension in markdown - required)
 ├── extension.json (a json file giving metadata about the extension - required)
 ├── release-schema.json (json merge patch of release-schema.json)
@@ -148,7 +148,7 @@ Add a new field `newOrgField` to the organization definition.
 
 To update the description of the planning phase.
 
-```
+```json
 {
   "properties": {
     "planning": {
