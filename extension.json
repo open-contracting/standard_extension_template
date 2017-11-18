@@ -9,8 +9,7 @@
     "en": "http://path.to.documentation.in.specified.language (required in at least one language)"
   },
   "codelists": [
-    "codelist1.csv",
-    "codelist2.csv"
+    "emptyCodelist.csv"
   ],
   "compatibility": [
     "1.0",
