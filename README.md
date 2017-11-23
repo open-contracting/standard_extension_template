@@ -2,20 +2,24 @@
 
 This repository has two purposes:
 
-* To give a template of an extension that people can base their own on.
-* To give a place for comment and discussion on how extensions should work.
+* To provide a template of an extension that people can base their own on.
+* To provide a place for comment and discussion on how extensions should work.
+
+[OCDS extensions](http://standard.open-contracting.org/latest/en/extensions/) can be used to declare additional fields, objects and sections that will be included in an OCDS file, but which are not in the core schema, and to add or extend codelists. When any OCDS publication cites an extension in its' package metadata, it should be validated against the schema with that extension applied. 
 
 ## Getting started
 
 To create an extension based on this template, you should:
 
 1. Download [a zip file version of the template](https://github.com/open-contracting/standard_extension_template/archive/master.zip)
-1. Extract it, and initialise it as a git repository (`git init`)
+1. Extract it, and initialise it as a git repository (`git init`)*
 1. Update the README.md and extension.json files, and prepare any schema, codelist, documentation and test files
 1. Commit the files you have changed
 1. Delete files you have not changed
 1. Push to a new public git repository
 1. (For core or community extensions) Register this extension with the [extensions registry](https://github.com/open-contracting/extension_registry)
+
+* Use of git for version control is recommended, but optional. Extensions can be hosted on any public HTTP server, providing the file structure matches that in this template repository. 
 
 ## Extension structure
 
@@ -29,7 +33,8 @@ The structure of an extension repository should look like:
 ├── release-package-schema.json (json merge patch of release-package-schema.json)
 ├── codelists
 │   ├── emptyCodelist.csv (A new codelist)
-│   └── awardCriteria.csv (This will overwrite the existing codelist)
+|   |__ +milestoneType.csv (This is will add values to the milestoneType codelist)
+│   └── milestoneType.csv (This will overwrite the existing codelist. Not recommended.)
 └── docs (more in depth documentation if required)
     └── index.md
 ```
@@ -50,7 +55,7 @@ Extensions must include at least one of those files. In most cases, the extensio
 
 This file is required. It provides information about the extension to be used by any OCDS automated tool.
 
-This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json). [extension-schema.json](https://github.com/open-contracting/standard-maintenance-scripts/blob/master/schema/extension-schema.json) describes its format.
+This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json) that describes its format.
 
 ### Required fields
 
@@ -60,8 +65,8 @@ This repository contains an [example extension.json](https://github.com/open-con
 
 ### Optional fields
 
-* `codelists`: An array of the filenames of the CSV files in the extension's `codelists` directory, e.g. `[ "codelistName.csv" ]`
-* `compatibility`: An array of minor versions of the core standard that the extension in compatible with, e.g. `[ "1.0", "1.1" ]`
+* `codelists`: An array of the filenames of the CSV files in the extension's `codelists` directory, e.g. `[ "codelistName.csv","+milestoneType.csv" ]`
+* `compatibility`: An array of minor versions of the core standard that the extension is compatible with, e.g. `[ "1.0", "1.1" ]`
 * `dependencies`: An array of the URLs of other extensions that this extension depends on, e.g. `[ "http://path/to/extension/extension.json" ]`
 
 ## Naming extensions
@@ -95,16 +100,17 @@ The actual description in the extension is much better:
 
 As in the [core standard repository](https://github.com/open-contracting/standard), the extension template also includes a codelists folder to store extension-specific codelists.
 
-Codelists are CSV files with camel case names , e.g. _contractStatus.csv_. Be aware that a codelist in your extension using the same name of an existing codelist in the standard repository will override the existing codelist.
+Codelists are CSV files with camel case names , e.g. _implementationStatus.csv_. Be aware that a codelist in your extension using the same name of an existing codelist in the standard repository will override the existing codelist.
+
+Prefixing a codelist name with _+_ (e.g. _+milestoneStatus.csv_) indicates that contents of the codelist should be appended to an existing codelist of the same name. 
 
 ## How the extensions work
 
-In the core repository as of OCDS version 1.0.1 there are the following 4 schema files.
+In the core repository as of OCDS version 1.1.1 there are the following 3 schema files.
 
 * release-schema.json
 * record-package-schema.json
 * release-package-schema.json
-* versioned-release-validation-schema.json
 
 In the extension some or all of these files can be used to do a JSON Merge Patch of the corresponding file.
 
@@ -112,7 +118,7 @@ A JSON merge patch is described by this [rfc](https://tools.ietf.org/html/rfc738
 
 The patches are very simple. They just copy the same structure from the core schema and allow you add your extra fields or update existing fields just in the places the extension wants to change the schema.
 
-Here are some simple examples of how this works. They are illistrative, any changes to existing fields should respect the [Conformance documentation](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
+Here are some simple examples of how this works. They are illustrative, any changes to existing fields should respect the [Conformance documentation](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
 
 They all are examples of what could go in `release-schema.json` files in an extension.
 
@@ -158,6 +164,8 @@ To update the description of the planning phase.
 }
 ```
 
+Note: Core or community extensions MAY add clarifying notes to a description, but MUST NOT change the definition of a field, as this would fail against the [conformance criteria](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
+
 Remove whole planning section. Putting in null will remove the key associated with it.
 
 ```json
@@ -170,6 +178,8 @@ Remove whole planning section. Putting in null will remove the key associated wi
   }
 }
 ```
+
+Note: Core or community extensions MUST NOT remove any existing sections or fields. This feature should only be used by local extensions, or in rare cases by OCDS profiles.
 
 ## Best practice
 
