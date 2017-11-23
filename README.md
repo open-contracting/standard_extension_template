@@ -164,7 +164,7 @@ Remove whole planning section. Putting in null will remove the key associated wi
 {
   "properties": {
     "planning": null
-  }
+  },
   "definitions": {
     "Planning": null
   }
