@@ -6,7 +6,7 @@
     "en": "A brief description of what this extension does, this will be pulled into the main docs as a link (required in at least one language)"
   },
   "documentationUrl": {
-    "en": "http://path.to.documentation.in.specified.language (required in at least one language)"
+    "en": "http://path.to/documentation/in/specified/language"
   },
   "codelists": [
     "emptyCodelist.csv"
