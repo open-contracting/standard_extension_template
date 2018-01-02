@@ -17,7 +17,17 @@ To create an extension based on this template, you should:
 1. Push to a new public git repository
 1. (For core or community extensions) Register this extension with the [extensions registry](https://github.com/open-contracting/extension_registry)
 
-## Extension structure
+## Naming extension repositories
+
+Names for extension repositories should conform to the following pattern:
+
+`ocds_[name]_extension`
+
+For example, `ocds_additionalContactPoints_extension`.
+
+`[name]` should indicate the purpose of the extension, and/or the field or object being extended to aid self-documentation. This could be the JSON Pointer fragment for the name of the primary field or object that the extension introduces.
+
+## Extension repository structure
 
 The structure of an extension repository should look like:
 
@@ -36,7 +46,7 @@ The structure of an extension repository should look like:
 
 This copies the layout of the core [standards repository](https://github.com/open-contracting/standard/tree/HEAD/standard/schema).
 
-## Schema files
+### Schema files
 
 The extension template includes the following schema files:
 
@@ -46,37 +56,27 @@ The extension template includes the following schema files:
 
 Extensions must include at least one of those files. In most cases, the extension will have a _release-schema.json_ with the minimal changes required to patch the schema, although there may be more marginal user cases requiring metadata patches for _release-package-schema.json_ and/or _record-package-schema.json_. Empty schema files should not be included in the extension.
 
-## extension.json
+### extension.json
 
 This file is required. It provides information about the extension to be used by any OCDS automated tool.
 
 This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json). [extension-schema.json](https://github.com/open-contracting/standard-maintenance-scripts/blob/master/schema/extension-schema.json) describes its format.
 
-### Required fields
+#### Required fields
 
 * `name`: An object mapping language codes to the name of the extension in the language
 * `description`: An object mapping language codes to the description of the extension in the language
 * `documentationUrl`: An object mapping language codes to the URL for documentation in the language, e.g. the extension's GitHub page
 
-### Optional fields
+#### Optional fields
 
 * `codelists`: An array of the filenames of the CSV files in the extension's `codelists` directory, e.g. `[ "codelistName.csv" ]`
 * `compatibility`: An array of minor versions of the core standard that the extension in compatible with, e.g. `[ "1.0", "1.1" ]`
 * `dependencies`: An array of the URLs of other extensions that this extension depends on, e.g. `[ "http://path/to/extension/extension.json" ]`
 
-## Naming extensions
+#### Description
 
-Names for extensions should conform to the following pattern:
-
-`ocds_[name]_extension`
-
-For example, `ocds_additionalContactPoints_extension`.
-
-`[name]` should indicate the purpose of the extension, and/or the field or object being extended to aid self-documentation. This could be the JSON Pointer fragment for the name of the primary field or object that the extension introduces.
-
-## Extension descriptions
-
-Here are some guidelines for writing the text for the mandatory field `"description"` in _extension.json_ :
+Here are some guidelines for writing the text for the mandatory `description` field in _extension.json_ :
 
 * There is no maximum length for the description, but you should try to keep it concise. In any case, do not sacrifice clarity for the sake of brevity.
 * Refer to the part(s) of the schema the extension is modifying.
@@ -90,6 +90,19 @@ For example, for [ocds_performance_failures_extension](https://github.com/open-c
 The actual description in the extension is much better:
 
 > Adds fields to the implementation section to allow disclosure of an array of contracting performance failures. Based on the performance failures reporting table defined in the World Bank Framework for Disclosure in PPPs.
+
+#### Translation
+
+To translate the `name` and `description` fields, and to provide `documentationUrl` in multiple languages, add additional key-value pairs for each language, for example:
+
+```json
+{
+  "description": {
+    "es": "Descripción",
+    "en": "Description"
+  }
+}
+```
 
 ## Codelists
 
