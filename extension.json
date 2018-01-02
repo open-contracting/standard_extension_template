@@ -16,7 +16,7 @@
     "1.1"
   ],
   "dependencies": [
-    "http://path/to/extension1/extension.json",
-    "http://path/to/extension2/extension.json"
+    "http://httpbin.org/anything/path/to/extension1/extension.json",
+    "http://httpbin.org/anything/path/to/extension2/extension.json"
   ]
 }
