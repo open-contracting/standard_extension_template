@@ -82,7 +82,6 @@ Here are some guidelines for writing the text for the mandatory field `"descript
 * Refer to the part(s) of the schema the extension is modifying.
 * Do not include in the description the development status of the extension (e.g. _draft_). If you need to add current status, do so in a _README_ file, it will be much more visible and therefore less prone to be forgotten and not updated.
 * Avoid descriptions that simply duplicate or paraphrase the extension name.
-
 For example, for [ocds_performance_failures_extension](https://github.com/open-contracting/ocds_performance_failures), this wouldn't be a good description:
 
 > An extension covering performance failures in OCDS.
@@ -90,6 +89,18 @@ For example, for [ocds_performance_failures_extension](https://github.com/open-c
 The actual description in the extension is much better:
 
 > Adds fields to the implementation section to allow disclosure of an array of contracting performance failures. Based on the performance failures reporting table defined in the World Bank Framework for Disclosure in PPPs.
+
+* If you need internationalize the description the correct format to do it is making that the description be a list
+and adding an item for each language, for example:
+```json
+{   
+    "description": {
+        "es": "Descripción",
+        "en": "Description"
+    }
+}
+```
+The same can be done with the field **title**.
 
 ## Codelists
 
