@@ -1,11 +1,8 @@
 # OCDS Extension Template Repository
 
-This repository has two purposes:
-
-* To provide a template of an extension that people can base their own on.
-* To provide a place for comment and discussion on how extensions should work.
-
 [OCDS extensions](http://standard.open-contracting.org/latest/en/extensions/) can be used to declare additional fields, objects and sections that will be included in an OCDS file, but which are not in the core schema, and to add or extend codelists. When any OCDS publication cites an extension in its' package metadata, it should be validated against the schema with that extension applied. 
+
+This repository provides a template of an extension that people can base their own on.
 
 ## Getting started
 
@@ -38,9 +35,9 @@ The structure of an extension repository should look like:
 ```text
 ├── README.md (a full description of the extension in markdown - required)
 ├── extension.json (a json file giving metadata about the extension - required)
-├── release-schema.json (json merge patch of release-schema.json)
-├── record-package-schema.json (json merge patch of record-package-schema.json)
-├── release-package-schema.json (json merge patch of release-package-schema.json)
+├── release-schema.json (JSON Merge Patch of release-schema.json)
+├── record-package-schema.json (JSON Merge Patch of record-package-schema.json)
+├── release-package-schema.json (JSON Merge Patch of release-package-schema.json)
 ├── codelists
 │   ├── emptyCodelist.csv (A new codelist)
 |   |__ +milestoneType.csv (This is will add values to the milestoneType codelist)
@@ -65,7 +62,7 @@ Extensions must include at least one of those files. In most cases, the extensio
 
 This file is required. It provides information about the extension to be used by any OCDS automated tool.
 
-This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json) that describes its format.
+This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json), whose format is described by [extension-schema.json](https://github.com/open-contracting/standard-maintenance-scripts/blob/master/schema/extension-schema.json).
 
 #### Required fields
 
@@ -113,13 +110,13 @@ To translate the `name` and `description` fields, and to provide `documentationU
 
 As in the [core standard repository](https://github.com/open-contracting/standard), the extension template also includes a codelists folder to store extension-specific codelists.
 
-Codelists are CSV files with camel case names , e.g. _implementationStatus.csv_. Be aware that a codelist in your extension using the same name of an existing codelist in the standard repository will override the existing codelist.
+Codelists are CSV files with camel case names, e.g. _implementationStatus.csv_. Be aware that a codelist in your extension using the same name as an existing codelist in the standard repository will override the existing codelist.
 
 Prefixing a codelist name with _+_ (e.g. _+milestoneStatus.csv_) indicates that contents of the codelist should be appended to an existing codelist of the same name. 
 
 ## How the extensions work
 
-In the core repository as of OCDS version 1.1.1 there are the following 3 schema files.
+As of OCDS 1.1, the schema files from the core standard that extensions can extend are:
 
 * release-schema.json
 * record-package-schema.json
@@ -127,11 +124,11 @@ In the core repository as of OCDS version 1.1.1 there are the following 3 schema
 
 In the extension some or all of these files can be used to do a JSON Merge Patch of the corresponding file.
 
-A JSON merge patch is described by this [rfc](https://tools.ietf.org/html/rfc7386).
+A JSON Merge Patch is described by this [RFC](https://tools.ietf.org/html/rfc7386).
 
 The patches are very simple. They just copy the same structure from the core schema and allow you add your extra fields or update existing fields just in the places the extension wants to change the schema.
 
-Here are some simple examples of how this works. They are illustrative, any changes to existing fields should respect the [Conformance documentation](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
+Here are some simple examples of how this works. They are illustrative; any changes to existing fields should respect the [Conformance documentation](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
 
 They all are examples of what could go in `release-schema.json` files in an extension.
 
@@ -165,40 +162,11 @@ Add a new field `newOrgField` to the organization definition.
 }
 ```
 
-To update the description of the planning phase.
-
-```json
-{
-  "properties": {
-    "planning": {
-      "description": "Information from the planning phase of the contracting process. This may include detailed budgets broken down by year (supported by the budgets extension).”
-    }
-  }
-}
-```
-
-Note: Core or community extensions MAY add clarifying notes to a description, but MUST NOT change the definition of a field, as this would fail against the [conformance criteria](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
-
-Remove whole planning section. Putting in null will remove the key associated with it.
-
-```json
-{
-  "properties": {
-    "planning": null
-  },
-  "definitions": {
-    "Planning": null
-  }
-}
-```
-
-Note: Core or community extensions MUST NOT remove any existing sections or fields. This feature should only be used by local extensions, or in rare cases by OCDS profiles.
-
 ## Best practice
 
 It is possible to copy the whole of the schemas from the core, change them and as long as you have only added or changed properties the extension will work as expected. However doing it this way will mean that it will be hard to see what changes are made and will be much harder to track changes of the core schema (as every change in the core schema will need to be copied).
 
-So it is best practice to just put in an extension the minimal changes that are required. However, it can be useful to work with the whole schema when developing an extension. In this case use the [json merge patch library](https://github.com/open-contracting/json-merge-patch) and it will generate the minimal patch for you by using the command line tool.
+So it is best practice to just put in an extension the minimal changes that are required. However, it can be useful to work with the whole schema when developing an extension. In this case use the [json-merge-patch library](https://github.com/open-contracting/json-merge-patch) and it will generate the minimal patch for you by using the command line tool.
 
 ```shell
 json-merge-patch create-patch core_schema.json new_modified_schema.json -o minimal_patch.json
