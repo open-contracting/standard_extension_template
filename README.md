@@ -40,8 +40,8 @@ The structure of an extension repository should look like:
 ├── release-package-schema.json (JSON Merge Patch of release-package-schema.json)
 ├── codelists
 │   ├── emptyCodelist.csv (A new codelist)
-|   |__ +milestoneType.csv (This is will add values to the milestoneType codelist)
-│   └── milestoneType.csv (This will overwrite the existing codelist. Not recommended.)
+|   |__ +milestoneType.csv (Add values to the milestoneType codelist)
+│   └── milestoneType.csv (Overwrite the existing codelist - not recommended)
 └── docs (more in depth documentation if required)
     └── index.md
 ```
