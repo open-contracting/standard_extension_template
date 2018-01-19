@@ -6,7 +6,7 @@
     "en": "A brief description of what this extension does, this will be pulled into the main docs as a link (required in at least one language)"
   },
   "documentationUrl": {
-    "en": "http://path.to.documentation.in.specified.language (required in at least one language)"
+    "en": "http://httpbin.org/anything/path/to/documentation/in/specified/language"
   },
   "codelists": [
     "emptyCodelist.csv"
@@ -16,7 +16,7 @@
     "1.1"
   ],
   "dependencies": [
-    "http://path/to/extension1/extension.json",
-    "http://path/to/extension2/extension.json"
+    "http://httpbin.org/anything/path/to/extension1/extension.json",
+    "http://httpbin.org/anything/path/to/extension2/extension.json"
   ]
 }
