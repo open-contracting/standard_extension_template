@@ -66,7 +66,7 @@ This repository contains an [example extension.json](https://github.com/open-con
 
 #### Required fields
 
-* `name`: An object mapping language codes to the name of the extension in the language
+* `name`: An object mapping language codes to the title case name of the extension in the language
 * `description`: An object mapping language codes to the description of the extension in the language
 * `documentationUrl`: An object mapping language codes to the URL for documentation in the language, e.g. the extension's GitHub page
 
