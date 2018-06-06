@@ -56,7 +56,7 @@ The extension template includes the following schema files:
 * release-package-schema.json
 * record-package-schema.json
 
-Extensions must include at least one of those files. In most cases, the extension will have a _release-schema.json_ with the minimal changes required to patch the schema, although there may be more marginal user cases requiring metadata patches for _release-package-schema.json_ and/or _record-package-schema.json_. Empty schema files should not be included in the extension.
+In most cases, the extension will have a _release-schema.json_ with the minimal changes required to patch the schema, although there may be more marginal user cases requiring metadata patches for _release-package-schema.json_ and/or _record-package-schema.json_. Empty schema files should not be included in the extension.
 
 ### extension.json
 
