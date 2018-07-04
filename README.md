@@ -72,8 +72,8 @@ This repository contains an [example extension.json](https://github.com/open-con
 
 #### Optional fields
 
-* `codelists`: An array of the filenames of the CSV files in the extension's `codelists` directory, e.g. `[ "codelistName.csv","+milestoneType.csv" ]`
-* `compatibility`: An array of minor versions of the core standard that the extension is compatible with, e.g. `[ "1.0", "1.1" ]`
+* `codelists`: An array of the filenames of the CSV files in the extension's `codelists` directory, e.g. `[ "codelistName.csv", "+milestoneType.csv" ]`
+* `compatibility`: An array of minor versions of the core standard that the extension is compatible with, e.g. `[ "1.1" ]`
 * `dependencies`: An array of the URLs of other extensions that this extension depends on, e.g. `[ "http://path/to/extension/extension.json" ]`
 
 #### Description
