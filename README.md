@@ -69,12 +69,12 @@ This repository contains an [example extension.json](https://github.com/open-con
 * `name`: An object mapping language codes to the title case name of the extension in the language
 * `description`: An object mapping language codes to the description of the extension in the language
 * `documentationUrl`: An object mapping language codes to the URL for documentation in the language, e.g. the extension's GitHub page
+* `compatibility`: An array of minor versions of the core standard that the extension is compatible with, e.g. `[ "1.1" ]`
 
 #### Optional fields
 
 * `schemas`: An array of the filenames of the JSON Schema files in the extension's root directory, e.g. `[ "release-schema.json" ]`
 * `codelists`: An array of the filenames of the CSV files in the extension's `codelists` directory, e.g. `[ "codelistName.csv", "+milestoneType.csv" ]`
-* `compatibility`: An array of minor versions of the core standard that the extension is compatible with, e.g. `[ "1.1" ]`
 * `dependencies`: An array of the URLs of other extensions that this extension depends on, e.g. `[ "http://path/to/extension/extension.json" ]`
 
 #### Description
