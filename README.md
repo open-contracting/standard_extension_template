@@ -86,7 +86,7 @@ Here are some guidelines for writing the text for the mandatory `description` fi
 * Do not include in the description the development status of the extension (e.g. _draft_). If you need to add current status, do so in a _README_ file, it will be much more visible and therefore less prone to be forgotten and not updated.
 * Avoid descriptions that simply duplicate or paraphrase the extension name.
 
-For example, for [ocds_performance_failures_extension](https://github.com/open-contracting/ocds_performance_failures), this wouldn't be a good description:
+For example, for [ocds_performance_failures_extension](https://github.com/open-contracting-extensions/ocds_performance_failures_extension), this wouldn't be a good description:
 
 > An extension covering performance failures in OCDS.
 
