@@ -38,12 +38,10 @@ The structure of an extension repository should look like:
 ├── release-schema.json (JSON Merge Patch of release-schema.json)
 ├── record-package-schema.json (JSON Merge Patch of record-package-schema.json)
 ├── release-package-schema.json (JSON Merge Patch of release-package-schema.json)
-├── codelists
-│   ├── emptyCodelist.csv (A new codelist)
-|   |__ +milestoneType.csv (Add values to the milestoneType codelist)
-│   └── milestoneType.csv (Overwrite the existing codelist - not recommended)
-└── docs (more in depth documentation if required)
-    └── index.md
+└── codelists
+    ├── emptyCodelist.csv (A new codelist)
+    |__ +milestoneType.csv (Add values to the milestoneType codelist)
+    └── milestoneType.csv (Overwrite the existing codelist - not recommended)
 ```
 
 This copies the layout of the core [standards repository](https://github.com/open-contracting/standard/tree/HEAD/standard/schema).
