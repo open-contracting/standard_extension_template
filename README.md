@@ -150,7 +150,7 @@ Add a new field `newOrgField` to the organization definition.
 ```json
 {
   "definitions": {
-    "Oranization": {
+    "Organization": {
       "newOrgField": {
         "title": "New Org field",
         "description": "A new field",
