@@ -1,6 +1,6 @@
 # OCDS Extension Template Repository
 
-[OCDS extensions](http://standard.open-contracting.org/latest/en/extensions/) can be used to declare additional fields, objects and sections that will be included in an OCDS file, but which are not in the core schema, and to add or extend codelists. When any OCDS publication cites an extension in its' package metadata, it should be validated against the schema with that extension applied. 
+[OCDS extensions](https://standard.open-contracting.org/latest/en/extensions/) can be used to declare additional fields, objects and sections that will be included in an OCDS file, but which are not in the core schema, and to add or extend codelists. When any OCDS publication cites an extension in its' package metadata, it should be validated against the schema with that extension applied. 
 
 This repository provides a template of an extension that people can base their own on.
 
@@ -127,7 +127,7 @@ A JSON Merge Patch is described by this [RFC](https://tools.ietf.org/html/rfc738
 
 The patches are very simple. They just copy the same structure from the core schema and allow you add your extra fields or update existing fields just in the places the extension wants to change the schema.
 
-Here are some simple examples of how this works. They are illustrative; any changes to existing fields should respect the [Conformance documentation](http://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
+Here are some simple examples of how this works. They are illustrative; any changes to existing fields should respect the [Conformance documentation](https://standard.open-contracting.org/latest/en/schema/conformance_and_extensions/).
 
 They all are examples of what could go in `release-schema.json` files in an extension.
 
