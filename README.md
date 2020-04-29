@@ -68,8 +68,8 @@ This repository contains an [example extension.json](https://github.com/open-con
 * `description`: An object mapping language codes to the description of the extension in the language
 * `documentationUrl`: An object mapping language codes to the URL for documentation in the language, e.g. the extension's GitHub page
 * `compatibility`: An array of minor versions of the core standard that the extension is compatible with, e.g. `[ "1.1" ]`
-* `contactPoint/name`: The name of a contact point to get in touch with the extension's authors or maintainers. It can be an individual or an organization.
-* `contactPoint/email`: An email address for the contact point.
+* `contactPoint/name`: The name of the contact point to communicate with the extension's authors or maintainers. It can be an individual or an organization.
+* `contactPoint/email`: The email address of the contact point.
 
 #### Optional fields
 
