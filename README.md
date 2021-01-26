@@ -44,7 +44,7 @@ The structure of an extension repository should look like:
     └── milestoneType.csv (Overwrite the existing codelist - not recommended)
 ```
 
-This copies the layout of the core [standards repository](https://github.com/open-contracting/standard/tree/HEAD/standard/schema).
+This copies the layout of the core [standards repository](https://github.com/open-contracting/standard/tree/HEAD/schema).
 
 ### Schema files
 
