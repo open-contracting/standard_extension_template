@@ -8,7 +8,7 @@ This repository provides a template of an extension that people can base their o
 
 To create an extension based on this template, you should:
 
-1. Download [a zip file version of the template](https://github.com/open-contracting/standard_extension_template/archive/master.zip)
+1. Download [a zip file version of the template](https://github.com/open-contracting/standard_extension_template/archive/main.zip)
 1. Extract it, and initialise it as a git repository (`git init`) †
 1. Update the README.md and extension.json files, and prepare any schema, codelist, documentation and test files
 1. Commit the files you have changed
@@ -60,7 +60,7 @@ In most cases, the extension will have a _release-schema.json_ with the minimal 
 
 This file is required. It provides information about the extension to be used by any OCDS automated tool.
 
-This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/master/extension.json), whose format is described by [extension-schema.json](https://github.com/open-contracting/standard-maintenance-scripts/blob/master/schema/extension-schema.json).
+This repository contains an [example extension.json](https://github.com/open-contracting/standard_extension_template/blob/main/extension.json), whose format is described by [extension-schema.json](https://github.com/open-contracting/standard-maintenance-scripts/blob/main/schema/extension-schema.json).
 
 #### Required fields
 
