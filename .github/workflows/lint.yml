@@ -15,5 +15,7 @@ jobs:
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip
-      - run: curl -s -S --retry 3 $BASEDIR/tests/install.sh | bash -
-      - run: curl -s -S --retry 3 $BASEDIR/tests/script.sh | bash -
+      - shell: bash
+        run: curl -s -S --retry 3 $BASEDIR/tests/install.sh | bash -
+      - shell: bash
+        run: curl -s -S --retry 3 $BASEDIR/tests/script.sh | bash -
