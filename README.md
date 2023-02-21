@@ -75,7 +75,8 @@ This repository contains an [example extension.json](https://github.com/open-con
 
 * `schemas`: An array of the filenames of the JSON Schema files in the extension's root directory, e.g. `[ "release-schema.json" ]`
 * `codelists`: An array of the filenames of the CSV files in the extension's `codelists` directory, e.g. `[ "codelistName.csv", "+milestoneType.csv" ]`
-* `dependencies`: An array of the URLs of other extensions that this extension depends on, e.g. `[ "http://path/to/extension/extension.json" ]`
+* `dependencies`: An array of the URLs of other extensions whose definitions this extension $ref'erences, e.g. `[ "http://path/to/extension/extension.json" ]`
+* `testDependencies`: An array of the URLs of other extensions whose definitions this extension adds fields to, e.g. `[ "http://path/to/extension/extension.json" ]`
 
 #### Description
 
