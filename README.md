@@ -36,8 +36,6 @@ The structure of an extension repository should look like:
 ├── README.md (a full description of the extension in markdown - required)
 ├── extension.json (a json file giving metadata about the extension - required)
 ├── release-schema.json (JSON Merge Patch of release-schema.json)
-├── record-package-schema.json (JSON Merge Patch of record-package-schema.json)
-├── release-package-schema.json (JSON Merge Patch of release-package-schema.json)
 └── codelists
     ├── emptyCodelist.csv (A new codelist)
     |__ +milestoneType.csv (Add values to the milestoneType codelist)
@@ -51,10 +49,8 @@ This copies the layout of the core [standards repository](https://github.com/ope
 The extension template includes the following schema files:
 
 * release-schema.json
-* release-package-schema.json
-* record-package-schema.json
 
-In most cases, the extension will have a _release-schema.json_ with the minimal changes required to patch the schema, although there may be more marginal user cases requiring metadata patches for _release-package-schema.json_ and/or _record-package-schema.json_. Empty schema files should not be included in the extension.
+In most cases, the extension will have a _release-schema.json_ with the minimal changes required to patch the schema. Empty schema files should not be included in the extension.
 
 ### extension.json
 
@@ -120,8 +116,6 @@ Prefixing a codelist name with _+_ (e.g. _+milestoneStatus.csv_) indicates that 
 As of OCDS 1.1, the schema files from the core standard that extensions can extend are:
 
 * release-schema.json
-* record-package-schema.json
-* release-package-schema.json
 
 In the extension some or all of these files can be used to do a JSON Merge Patch of the corresponding file.
 

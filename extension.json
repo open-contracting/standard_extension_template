@@ -9,8 +9,6 @@
     "en": "http://httpbin.org/anything/path/to/documentation/in/specified/language"
   },
   "schemas": [
-    "record-package-schema.json",
-    "release-package-schema.json",
     "release-schema.json"
   ],
   "codelists": [
