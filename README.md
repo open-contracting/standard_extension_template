@@ -10,9 +10,6 @@ To use this template:
 
 To learn more about extensions to the Open Contracting Data Standard, read the relevant page in the [Extension Explorer](https://extensions.open-contracting.org/en/publishers/) and [OCDS documentation](https://standard.open-contracting.org/latest/en/extensions/).
 
-(Use of git is recommended, but not required. Extensions can be hosted on any public HTTP server, providing the file 
-structure matches that in this template repository.)
-
 The rest of this file serves as a template for the extension's documentation. For inspiration, read the documentation of other extensions in the [Extension Explorer](https://extensions.open-contracting.org/).
 
 # Title Case Name
