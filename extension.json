@@ -1,28 +1,24 @@
 {
   "name": {
-    "en": "Name of extension (required in at least one language)"
+    "en": "[REQUIRED] The sentence-case name of the extension, in English"
   },
   "description": {
-    "en": "A brief description of what this extension does, this will be pulled into the main docs as a link (required in at least one language)"
+    "en": "[REQUIRED] The concise description of the changes made by the extension, at a high level, in English."
   },
   "documentationUrl": {
-    "en": "http://httpbin.org/anything/path/to/documentation/in/specified/language"
+    "en": "https://github.com/open-contracting/standard_extension_template#THIS-FIELD-IS-REQUIRED"
   },
   "schemas": [
     "release-schema.json"
   ],
   "codelists": [
-    "emptyCodelist.csv"
+    "codelistName.csv"
   ],
   "compatibility": [
     "1.1"
   ],
-  "dependencies": [
-    "http://httpbin.org/anything/path/to/extension1/extension.json",
-    "http://httpbin.org/anything/path/to/extension2/extension.json"
-  ],
   "contactPoint": {
-    "name": "Your name here",
-    "email": "youremail@example.com"
+    "name": "[REQUIRED] The name of the contact point of the extension (for example, your name). The contact point can be an individual or organization.",
+    "email": "REQUIRED-email-address-of-the-contact-point@example.com"
   }
 }
