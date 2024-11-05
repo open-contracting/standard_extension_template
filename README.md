@@ -8,7 +8,7 @@ If using GitHub to host your extension:
 1. Delete any files you have not changed
 1. Commit your changes, and push your commit to the repository
 
-If using another host (GitLab, Bitbucket, etc):
+If using another host (GitLab, Bitbucket, etc.):
 
 1. [Download the template as a ZIP file](https://github.com/open-contracting/standard_extension_template/archive/master.zip)
 1. Extract the files from the ZIP file
